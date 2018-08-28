@@ -9,7 +9,7 @@ import retrofit2.http.Query
 interface MainApiService {
 
     @GET(Urls.GET_ARTICLES)
-    fun getSchedule(@Query("appDomain") appDomain: String,
+    fun getSchedule(@Query("appDomain") appDomain: Int,
                     @Query("locale")
                     locale: String,
                     @Query("limit") limit: Int): Call<ArticleResp>
