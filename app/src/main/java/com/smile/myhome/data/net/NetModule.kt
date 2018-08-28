@@ -1,4 +1,4 @@
-package com.smile.myhome.net
+package com.smile.myhome.data.net
 
 import com.smile.myhome.App
 import okhttp3.*

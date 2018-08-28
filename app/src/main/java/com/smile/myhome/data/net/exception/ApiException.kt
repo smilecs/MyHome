@@ -1,4 +1,4 @@
-package com.smile.myhome.net.exception
+package com.smile.myhome.data.net.exception
 
 import com.past3.ketro.api.ApiErrorHandler
 import retrofit2.Response

@@ -1,4 +1,4 @@
-package com.smile.myhome.main.api.response
+package com.smile.myhome.main.repo.api.response
 
 import com.squareup.moshi.Json
 

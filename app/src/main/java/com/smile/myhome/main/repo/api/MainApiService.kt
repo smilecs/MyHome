@@ -1,7 +1,7 @@
-package com.smile.myhome.main.api
+package com.smile.myhome.main.repo.api
 
-import com.smile.myhome.net.Urls
-import com.smile.myhome.main.api.response.ArticleResp
+import com.smile.myhome.data.net.Urls
+import com.smile.myhome.main.repo.api.response.ArticleResp
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Query
