@@ -1,6 +1,11 @@
 <resources>
     <string name="app_name">MyHome</string>
 
-    <string name="dummy_button">Dummy Button</string>
-    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="start">Start</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="counter_text">%d/%d</string>
+    <string name="empty_view_text">All done for now, click review to view the history</string>
+    <string name="no_server_data"> Oops, nothing to review for now</string>
+    <string name="title_activity_review">ReviewActivity</string>
 </resources>
