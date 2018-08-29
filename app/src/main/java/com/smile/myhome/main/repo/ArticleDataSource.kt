@@ -8,7 +8,11 @@ interface ArticleDataSource {
     fun getArticles(source: Int):
             LiveData<Wrapper<List<Article>>>
 
-    fun addArticle(article: List<Article>)
+    fun addArticles(article: List<Article>)
+
+    fun saveReviewedArticle(article: Article)
+
+    fun getReviewedArticles(): LiveData<Wrapper<List<Article>>>
 
     fun clearData()
 }

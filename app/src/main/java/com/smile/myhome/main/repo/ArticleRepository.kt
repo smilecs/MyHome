@@ -2,6 +2,7 @@ package com.smile.myhome.main.repo
 
 import android.arch.core.util.Function
 import android.arch.lifecycle.LiveData
+import android.arch.lifecycle.MutableLiveData
 import android.arch.lifecycle.Transformations
 import com.past3.ketro.model.Wrapper
 import com.smile.myhome.App
@@ -31,11 +32,17 @@ class ArticleRepository : ArticleDataSource {
         }
     }
 
-    override fun addArticle(article: List<Article>) {
+    override fun addArticles(article: List<Article>) {
         doAsync {
             article.forEach {
                 articleDao.addArticle(it)
             }
+        }
+    }
+
+    override fun saveReviewedArticle(article: Article) {
+        doAsync {
+            articleDao.addArticle(article)
         }
     }
 
@@ -45,13 +52,16 @@ class ArticleRepository : ArticleDataSource {
         }
     }
 
-    //for now only reviewed articles are persisted
-    private fun getLocalArticles(): LiveData<Wrapper<List<Article>>> {
-        return Transformations.map(articleDao.getArticles(), Function {
+    override fun getReviewedArticles() = getLocalArticles(true)
+
+    private fun getLocalArticles(reviewed: Boolean = false): LiveData<Wrapper<List<Article>>> {
+        val liveDataWrapper = MutableLiveData<Wrapper<List<Article>>>()
+        doAsync {
             val wrapper = Wrapper<List<Article>>()
-            wrapper.data = it
-            return@Function wrapper
-        })
+            wrapper.data = articleDao.getArticles(reviewed)
+            liveDataWrapper.postValue(wrapper)
+        }
+        return liveDataWrapper
     }
 
     private fun getRemoteArticles(): LiveData<Wrapper<List<Article>>> {

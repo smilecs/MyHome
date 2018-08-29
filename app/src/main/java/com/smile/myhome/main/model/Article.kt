@@ -8,11 +8,12 @@ import kotlinx.android.parcel.Parcelize
 
 @Entity
 @Parcelize
-data class Article(@PrimaryKey(autoGenerate = true) var id: Int? = null,
-                   var description: String? = "",
+data class Article(var description: String? = "",
+                   @PrimaryKey(autoGenerate = false)
                    var sku: String = "",
                    var title: String = "",
                    @Ignore
                    val media: List<Media> = listOf(),
                    var liked: Boolean = false,
+                   var reviewed: Boolean = false,
                    var imageString: String? = "") : Parcelable

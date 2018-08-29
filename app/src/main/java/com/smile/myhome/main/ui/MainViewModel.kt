@@ -15,8 +15,10 @@ class MainViewModel(val app: Application) : AndroidViewModel(app) {
     val articleList = mutableListOf<Article>()
     val counterLiveData = MutableLiveData<Int>()
     val toggleLiveData = MutableLiveData<Boolean>()
+    private val reviewedList = mutableListOf<Article>()
 
     var counter: Int = 0
+    var totalSize: Int = 0
     private val articleRepo: ArticleDataSource by lazy {
         ArticleRepository()
     }
@@ -28,6 +30,7 @@ class MainViewModel(val app: Application) : AndroidViewModel(app) {
             it.data?.let { data ->
                 articleList.addAll(data)
             }
+            totalSize = articleList.size
             counterLiveData.value = counter
             return@Function it
         })
@@ -39,16 +42,18 @@ class MainViewModel(val app: Application) : AndroidViewModel(app) {
     }
 
     fun saveArticles() {
-        articleRepo.addArticle(articleList)
+        articleRepo.addArticles(articleList)
     }
 
 
     fun rateArticle(like: Boolean, position: Int) {
         counter += 1
         counterLiveData.value = counter
-        articleList.removeAt(position).liked = like
+        val reviewedArticle = articleList.removeAt(position)
+        reviewedArticle.liked = like
+        reviewedList.add(reviewedArticle)
         checkToggleConditions()
-        //saveToReviewRepo
+        articleRepo.saveReviewedArticle(reviewedArticle)
     }
 
     private fun checkToggleConditions() {
