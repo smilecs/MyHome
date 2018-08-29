@@ -10,7 +10,7 @@ import com.smile.myhome.main.model.Article
 @Dao
 interface ArticleDao {
     @Query("SELECT * FROM Article")
-    fun getReviewedArticles(): LiveData<List<Article>>
+    fun getArticles(): LiveData<List<Article>>
 
     @Insert(onConflict = REPLACE)
     fun addArticle(model: Article)

@@ -47,7 +47,7 @@ class ArticleRepository : ArticleDataSource {
 
     //for now only reviewed articles are persisted
     private fun getLocalArticles(): LiveData<Wrapper<List<Article>>> {
-        return Transformations.map(articleDao.getReviewedArticles(), Function {
+        return Transformations.map(articleDao.getArticles(), Function {
             val wrapper = Wrapper<List<Article>>()
             wrapper.data = it
             return@Function wrapper
@@ -56,7 +56,7 @@ class ArticleRepository : ArticleDataSource {
 
     private fun getRemoteArticles(): LiveData<Wrapper<List<Article>>> {
         val res = App.getsInstance().resources
-        val articleReq = ArticlesRequest(Properties.getLimit(),
+        val articleReq = ArticlesRequest(res.getInteger(R.integer.limit),
                 res.getString(R.string.locale),
                 res.getInteger(R.integer.appDomain))
         return Transformations.map(articleReq.doRequest(), Function { resp ->
