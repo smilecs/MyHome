@@ -2,7 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.smile.myhome">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
+        android:name=".App"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -10,15 +13,26 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name="com.smile.myhome.main.ui.activity.SessionStartActivity"
+            android:name=".main.ui.activity.SessionStartActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/app_name"
-            android:theme="@style/FullscreenTheme">
+            android:theme="@style/FullScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
+        </activity>
+        <activity android:name=".main.ui.activity.SelectionActivity">
+        </activity>
+        <activity
+            android:name=".main.ui.activity.ReviewActivity"
+            android:label="@string/title_activity_review"
+            android:parentActivityName=".main.ui.activity.SelectionActivity"
+            android:theme="@style/AppTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.smile.myhome.main.ui.activity.SelectionActivity"/>
         </activity>
     </application>
 
