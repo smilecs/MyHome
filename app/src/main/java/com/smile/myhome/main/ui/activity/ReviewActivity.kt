@@ -2,6 +2,7 @@ package com.smile.myhome.main.ui.activity
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.view.MenuItem
 import com.smile.myhome.R
 import com.smile.myhome.main.ui.fragment.ReviewFragment
 import kotlinx.android.synthetic.main.activity_review.*
@@ -17,5 +18,15 @@ class ReviewActivity : AppCompatActivity() {
         supportFragmentManager.beginTransaction()
                 .replace(R.id.container, ReviewFragment())
                 .commit()
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        return when (item?.itemId) {
+            android.R.id.home -> {
+                finish()
+                true
+            }
+            else -> return super.onOptionsItemSelected(item)
+        }
     }
 }

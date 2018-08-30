@@ -1,9 +1,12 @@
 package com.smile.myhome.main.ui.fragment
 
 
+import android.animation.AnimatorInflater
+import android.annotation.TargetApi
 import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
@@ -53,6 +56,9 @@ class SelectionFragment : Fragment(), View.OnClickListener {
         getArticleData(savedInstanceState)
         observerCounter()
         toggleObserver()
+        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.KITKAT) {
+            setAnimator()
+        }
     }
 
     private fun getArticleData(bundle: Bundle?) {
@@ -123,5 +129,13 @@ class SelectionFragment : Fragment(), View.OnClickListener {
         rateButtonContainer.visibility = View.VISIBLE
         emptyViewState.visibility = View.GONE
         emptyViewStateText.visibility = View.GONE
+    }
+
+    @TargetApi(21)
+    private fun setAnimator() {
+        val dislikeAnimator = AnimatorInflater.loadStateListAnimator(context, R.animator.scale_animation)
+        val likeAnimator = AnimatorInflater.loadStateListAnimator(context, R.animator.scale_animation)
+        likeButton.stateListAnimator = likeAnimator
+        dislikeButton.stateListAnimator = dislikeAnimator
     }
 }

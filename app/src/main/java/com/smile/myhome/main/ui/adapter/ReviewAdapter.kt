@@ -7,9 +7,9 @@ import android.view.ViewGroup
 import com.bumptech.glide.RequestManager
 import com.smile.myhome.R
 import com.smile.myhome.main.model.Article
-import com.smile.myhome.main.ui.GridReviewHolder
-import com.smile.myhome.main.ui.LinearReviewHolder
-import com.smile.myhome.main.ui.ReviewViewHolder
+import com.smile.myhome.main.ui.adapter.viewholder.GridReviewHolder
+import com.smile.myhome.main.ui.adapter.viewholder.LinearReviewHolder
+import com.smile.myhome.main.ui.adapter.viewholder.ReviewViewHolder
 
 class ReviewAdapter(val reviewModel: List<Article>,
                     val reqManager: RequestManager,
