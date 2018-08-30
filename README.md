@@ -15,7 +15,9 @@ This app was built using kotlin, below are some of the libraries used and brief 
 * Room persistence library: local caching of articles for review and state restoration
 * Architecture components(LiveData, ViewModel): Enable an observable UI flow with delivering data when view is in a recievable state
 * Ketro(My personal open source library): Used for enabling error handling and easily wrapping retrofit requests as LiveData streams
-* Anko: extensions library for shorter method calls like creating async tasks in a single line `do async{}` for more info on ketro check https://github.com/smilecs/ketro
+ for more info on ketro check https://github.com/smilecs/ketro
+
+* Anko: extensions library for shorter method calls like creating async tasks in a single line `do async{}`
 
 ## Structure
 
