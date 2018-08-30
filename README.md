@@ -22,3 +22,4 @@ This app was built using kotlin, below are some of the libraries used and brief 
 ## Structure
 
 Project uses an MVVM pattern based off android architectural components, files are separated by concerns and features.
+Configuration of values such as limit can be done from the `props.xml` file
