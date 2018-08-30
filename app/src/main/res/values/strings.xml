@@ -8,4 +8,7 @@
     <string name="empty_view_text">All done for now, click review to view the history</string>
     <string name="no_server_data"> Oops, nothing to review for now</string>
     <string name="title_activity_review">ReviewActivity</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

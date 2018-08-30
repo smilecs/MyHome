@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+                                    xmlns:app="http://schemas.android.com/apk/res-auto"
+                                    app:cardBackgroundColor="@android:color/white"
+                                    app:cardElevation="4dp"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="6dp"
+                                    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/reviewedImage"
+        android:layout_width="match_parent"
+        android:layout_height="240dp"
+        android:scaleType="centerCrop"/>
+</android.support.v7.widget.CardView>
