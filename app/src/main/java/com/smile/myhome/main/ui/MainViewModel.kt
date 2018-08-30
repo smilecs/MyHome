@@ -1,17 +1,16 @@
 package com.smile.myhome.main.ui
 
-import android.app.Application
 import android.arch.core.util.Function
-import android.arch.lifecycle.AndroidViewModel
 import android.arch.lifecycle.LiveData
 import android.arch.lifecycle.MutableLiveData
 import android.arch.lifecycle.Transformations
+import android.arch.lifecycle.ViewModel
 import com.past3.ketro.model.Wrapper
 import com.smile.myhome.main.model.Article
 import com.smile.myhome.main.repo.ArticleDataSource
 import com.smile.myhome.main.repo.ArticleRepository
 
-class MainViewModel(val app: Application) : AndroidViewModel(app) {
+class MainViewModel : ViewModel() {
     val articleList = mutableListOf<Article>()
     val counterLiveData = MutableLiveData<Int>()
     val toggleLiveData = MutableLiveData<Boolean>()
@@ -38,7 +37,6 @@ class MainViewModel(val app: Application) : AndroidViewModel(app) {
 
     fun clearArticles() {
         articleList.clear()
-        articleRepo.clearData()
     }
 
     fun saveArticles() {
@@ -51,6 +49,7 @@ class MainViewModel(val app: Application) : AndroidViewModel(app) {
         counterLiveData.value = counter
         val reviewedArticle = articleList.removeAt(position)
         reviewedArticle.liked = like
+        reviewedArticle.reviewed = true
         reviewedList.add(reviewedArticle)
         checkToggleConditions()
         articleRepo.saveReviewedArticle(reviewedArticle)

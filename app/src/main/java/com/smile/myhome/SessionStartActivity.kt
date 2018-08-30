@@ -1,11 +1,9 @@
-package com.smile.myhome.main.ui.activity
+package com.smile.myhome
 
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.os.Handler
-import android.view.View
-import com.smile.myhome.R
+import com.smile.myhome.main.ui.activity.SelectionActivity
 import kotlinx.android.synthetic.main.activity_session_start.*
 
 /**

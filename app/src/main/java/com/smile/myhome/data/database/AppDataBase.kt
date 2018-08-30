@@ -3,12 +3,15 @@ package com.smile.myhome.data.database
 import android.arch.persistence.room.Database
 import android.arch.persistence.room.Room
 import android.arch.persistence.room.RoomDatabase
+import android.arch.persistence.room.TypeConverters
 import android.content.Context
 import com.smile.myhome.SingletonHolder
 import com.smile.myhome.main.model.Article
+import com.smile.myhome.main.model.Media
 import com.smile.myhome.main.repo.dao.ArticleDao
 
 @Database(entities = [Article::class], version = 1)
+@TypeConverters(Media.Companion.MediaRoomTypeConverter::class)
 abstract class AppDataBase : RoomDatabase() {
 
     abstract fun articleDao(): ArticleDao

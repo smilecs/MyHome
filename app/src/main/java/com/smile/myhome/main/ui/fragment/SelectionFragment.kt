@@ -3,6 +3,7 @@ package com.smile.myhome.main.ui.fragment
 
 import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
+import android.content.Intent
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
@@ -17,6 +18,7 @@ import com.smile.myhome.R
 import com.smile.myhome.main.model.Article
 import com.smile.myhome.main.repo.ArticleRepository
 import com.smile.myhome.main.ui.MainViewModel
+import com.smile.myhome.main.ui.activity.ReviewActivity
 import com.smile.myhome.main.ui.adapter.SelectionListAdapter
 import kotlinx.android.synthetic.main.selection_screen.*
 import kotlin.properties.Delegates
@@ -98,7 +100,7 @@ class SelectionFragment : Fragment(), View.OnClickListener {
             if (toggle != null && toggle) {
                 reviewButton.isEnabled = true
                 reviewButton.setOnClickListener {
-
+                    startActivity(Intent(context, ReviewActivity::class.java))
                 }
                 toggleEmptyState()
             }

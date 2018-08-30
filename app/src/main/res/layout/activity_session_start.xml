@@ -7,7 +7,7 @@
               android:fitsSystemWindows="true"
               android:gravity="center"
               android:orientation="vertical"
-              tools:context=".main.ui.activity.SessionStartActivity">
+              tools:context=".SessionStartActivity">
 
     <Button
         android:id="@+id/startButton"

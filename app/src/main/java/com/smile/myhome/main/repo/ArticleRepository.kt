@@ -65,6 +65,7 @@ class ArticleRepository : ArticleDataSource {
     }
 
     private fun getRemoteArticles(): LiveData<Wrapper<List<Article>>> {
+        clearData()
         val res = App.getsInstance().resources
         val articleReq = ArticlesRequest(res.getInteger(R.integer.limit),
                 res.getString(R.string.locale),
